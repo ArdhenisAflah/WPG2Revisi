@@ -11,24 +11,47 @@ public class PuzzleManager : MonoBehaviour
     [Header("UI References")]
     public TextMeshProUGUI modeText;
 
-    private PuzzleTile[,] tiles = new PuzzleTile[3, 3];
+    private PuzzleTile[,] tiles = new PuzzleTile[2, 2];
     private int currentRow = 0;
     private int currentCol = 0;
     private bool isHorizontal = true;
     private List<PuzzleTile> currentSelection = new List<PuzzleTile>();
+    public int Day;
 
     void Start()
     {
         // Initialize 2D array
         int index = 0;
-        for (int row = 0; row < 3; row++)
+        for (int row = 0; row < 2; row++)
         {
-            for (int col = 0; col < 3; col++)
+            for (int col = 0; col < 2; col++)
             {
-                tiles[row, col] = tileObjects[index++];
-                // Set random rotation (0-3, where 0=0°, 1=90° etc.)
-                tiles[row, col].currentRotation = Random.Range(0, 4);
-                tiles[row, col].RotateTile(); // Apply visual rotation
+                if (Day == 1)
+                {
+                    tiles[row, col] = tileObjects[index++];
+                    if (row == 0 && col == 0)
+                    {
+                        tiles[row, col].currentRotation = 0;
+                        tiles[row, col].RotateTile();
+                    }
+                    else if (row == 0 && col == 1)
+                    {
+                        tiles[row, col].currentRotation = 0;
+                        tiles[row, col].RotateTile();
+                    }
+                    else if (row == 1 && col == 0)
+                    {
+                    }
+                    else if (row == 1 && col == 1)
+                    {
+                    }
+                    else
+                    {
+                        // Set random rotation (0-3, where 0=0°, 1=90° etc.)
+                        tiles[row, col].currentRotation = Random.Range(0, 4);
+                        tiles[row, col].RotateTile(); // Apply visual rotation
+                    }
+                }
             }
         }
 
@@ -83,7 +106,7 @@ public class PuzzleManager : MonoBehaviour
         // Add new selection
         if (isHorizontal)
         {
-            for (int col = 0; col < 3; col++)
+            for (int col = 0; col < 2; col++)
             {
                 currentSelection.Add(tiles[currentRow, col]);
                 tiles[currentRow, col].SetHighlight(true, isHorizontal);
@@ -91,7 +114,7 @@ public class PuzzleManager : MonoBehaviour
         }
         else
         {
-            for (int row = 0; row < 3; row++)
+            for (int row = 0; row < 2; row++)
             {
                 currentSelection.Add(tiles[row, currentCol]);
                 tiles[row, currentCol].SetHighlight(true, isHorizontal);
