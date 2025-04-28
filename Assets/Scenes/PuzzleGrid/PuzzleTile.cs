@@ -26,6 +26,6 @@ public class PuzzleTile : MonoBehaviour
     public void RotateTile()
     {
         currentRotation = (currentRotation + 1) % 4;
-        rectTransform.rotation = Quaternion.Euler(0, 0, currentRotation * 90);
+        rectTransform.rotation = Quaternion.Euler(0, 0, currentRotation * -90);
     }
 }
