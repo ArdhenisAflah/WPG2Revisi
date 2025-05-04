@@ -6,7 +6,7 @@ using TMPro;
 public class PuzzleManager : MonoBehaviour
 {
     [Header("Tile References")]
-    public List<PuzzleTile> tileObjects; // Assign in inspector (Tile1-Tile9 in order)
+    public List<PuzzleTile> tileObjects; // Assign in inspector (Tile1-Tile4 in order)
 
     [Header("UI References")]
     public TextMeshProUGUI modeText;
@@ -17,8 +17,12 @@ public class PuzzleManager : MonoBehaviour
     private bool isHorizontal = true;
     private List<PuzzleTile> currentSelection = new List<PuzzleTile>();
     public int Day;
-
     void Start()
+    {
+        Init();
+    }
+
+    void Init()
     {
         // Initialize 2D array
         int index = 0;
@@ -41,9 +45,13 @@ public class PuzzleManager : MonoBehaviour
                     }
                     else if (row == 1 && col == 0)
                     {
+                        tiles[row, col].currentRotation = 3;
+                        tiles[row, col].RotateTile();
                     }
                     else if (row == 1 && col == 1)
                     {
+                        tiles[row, col].currentRotation = 3;
+                        tiles[row, col].RotateTile();
                     }
                     else
                     {
@@ -62,6 +70,7 @@ public class PuzzleManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) ToggleSelectionMode();
+        if (Input.GetKeyDown(KeyCode.R)) Init();
 
         if (isHorizontal)
         {
