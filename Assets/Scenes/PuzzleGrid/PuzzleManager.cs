@@ -60,6 +60,96 @@ public class PuzzleManager : MonoBehaviour
                         tiles[row, col].RotateTile(); // Apply visual rotation
                     }
                 }
+                if (Day == 2)
+                {
+                    tiles[row, col] = tileObjects[index++];
+                    if (row == 0 && col == 0)
+                    {
+                        tiles[row, col].currentRotation = 2;
+                        tiles[row, col].RotateTile();
+                    }
+                    else if (row == 0 && col == 1)
+                    {
+                        tiles[row, col].currentRotation = 2;
+                        tiles[row, col].RotateTile();
+                    }
+                    else if (row == 1 && col == 0)
+                    {
+                        tiles[row, col].currentRotation = 2;
+                        tiles[row, col].RotateTile();
+                    }
+                    else if (row == 1 && col == 1)
+                    {
+                        tiles[row, col].currentRotation = 2;
+                        tiles[row, col].RotateTile();
+                    }
+                    else
+                    {
+                        // Set random rotation (0-3, where 0=0°, 1=90° etc.)
+                        tiles[row, col].currentRotation = Random.Range(0, 4);
+                        tiles[row, col].RotateTile(); // Apply visual rotation
+                    }
+                }
+                if (Day == 3)
+                {
+                    tiles[row, col] = tileObjects[index++];
+                    if (row == 0 && col == 0)
+                    {
+                        tiles[row, col].currentRotation = 0;
+                        tiles[row, col].RotateTile();
+                    }
+                    else if (row == 0 && col == 1)
+                    {
+                        tiles[row, col].currentRotation = 3;
+                        tiles[row, col].RotateTile();
+                    }
+                    else if (row == 1 && col == 0)
+                    {
+                        tiles[row, col].currentRotation = 3;
+                        tiles[row, col].RotateTile();
+                    }
+                    else if (row == 1 && col == 1)
+                    {
+                        tiles[row, col].currentRotation = 2;
+                        tiles[row, col].RotateTile();
+                    }
+                    else
+                    {
+                        // Set random rotation (0-3, where 0=0°, 1=90° etc.)
+                        tiles[row, col].currentRotation = Random.Range(0, 4);
+                        tiles[row, col].RotateTile(); // Apply visual rotation
+                    }
+                }
+                if (Day == 4)
+                {
+                    tiles[row, col] = tileObjects[index++];
+                    if (row == 0 && col == 0)
+                    {
+                        tiles[row, col].currentRotation = 1;
+                        tiles[row, col].RotateTile();
+                    }
+                    else if (row == 0 && col == 1)
+                    {
+                        tiles[row, col].currentRotation = 3;
+                        tiles[row, col].RotateTile();
+                    }
+                    else if (row == 1 && col == 0)
+                    {
+                        tiles[row, col].currentRotation = 2;
+                        tiles[row, col].RotateTile();
+                    }
+                    else if (row == 1 && col == 1)
+                    {
+                        tiles[row, col].currentRotation = 0;
+                        tiles[row, col].RotateTile();
+                    }
+                    else
+                    {
+                        // Set random rotation (0-3, where 0=0°, 1=90° etc.)
+                        tiles[row, col].currentRotation = Random.Range(0, 4);
+                        tiles[row, col].RotateTile(); // Apply visual rotation
+                    }
+                }
             }
         }
 
