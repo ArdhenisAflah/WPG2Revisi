@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,15 +10,15 @@ public class Timer : MonoBehaviour
     public TMP_Text TimerText;
     public TMP_Text DayText;
     
-	private float SecondCount;
-	private int MinuteCount;
-	private int HourCount;
-    private int DayCount;
+	private float MinuteCount;
+	private float HourCount;
+    private string DayPart;
+    private bool DayEnd;
 
     void Start()
     {
-        DayCount = 1;
         HourCount = 6;
+        DayPart = "AM";
     }
 
     void Update()
@@ -28,24 +29,24 @@ public class Timer : MonoBehaviour
     // Call this on update
     public void UpdateTimerUI()
     {
-		//set timer UI
-		SecondCount += Time.deltaTime * 2;
-		TimerText.text = HourCount + ":" + MinuteCount + ":" + SecondCount;
-        DayText.text = "Day " + DayCount;
-		
-        if(SecondCount >= 60)
-        {
-			MinuteCount++;
-			SecondCount = 0;
-		}
-        else if(MinuteCount >= 60)
+		// Set timer UI
+		MinuteCount += Time.deltaTime * 2;
+		TimerText.text = HourCount + " : 00 " + DayPart;
+        
+        if(MinuteCount >= 60 && DayEnd == false)
         {
 			HourCount++;
 			MinuteCount = 0;
 		}
-        else if(HourCount >= 20)
+        if(HourCount == 12)
         {
-            DayCount++;
+            DayPart = "PM";
+            HourCount = 0;
+        }
+        if(HourCount == 21 && DayEnd == false)
+        {
+            DayEnd = true;
+            HourCount = 6;
         }
 	}
 }
