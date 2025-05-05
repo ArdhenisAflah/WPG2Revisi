@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Chest : MonoBehaviour, I_Interactable
+public class MinigameObject : MonoBehaviour, I_Interactable
 {
     public bool IsOpened { get; private set; }
     public GameObject TypingMinigame;
