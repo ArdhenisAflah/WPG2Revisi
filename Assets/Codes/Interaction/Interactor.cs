@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InteractionDetector : MonoBehaviour
+public class Interactor : MonoBehaviour
 {
     private I_Interactable InteractableInRange = null;
 
@@ -18,16 +18,16 @@ public class InteractionDetector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out I_Interactable interactable) && interactable.CanInteract())
+        if (collision.TryGetComponent(out I_Interactable Interactable) && Interactable.CanInteract())
         {
             // Sets the closest object as interactable
-            InteractableInRange = interactable;
+            InteractableInRange = Interactable;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out I_Interactable interactable) && interactable == InteractableInRange)
+        if (collision.TryGetComponent(out I_Interactable Interactable) && Interactable == InteractableInRange)
         {
             // Sets nothing as interactable
             InteractableInRange = null;

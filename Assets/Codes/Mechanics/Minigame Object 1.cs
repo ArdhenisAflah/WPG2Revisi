@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class MinigameObject : MonoBehaviour, I_Interactable
+public class MinigameObject1 : MonoBehaviour, I_Interactable
 {
     public bool IsOpened { get; private set; }
     public GameObject TypingMinigame;
@@ -21,7 +21,7 @@ public class MinigameObject : MonoBehaviour, I_Interactable
     }
     public bool CanInteract()
     {
-        // Chest is interactable
+        // Object is interactable
         return true;
     }
 
@@ -51,7 +51,7 @@ public class MinigameObject : MonoBehaviour, I_Interactable
 
     public void Interact()
     {
-        Debug.Log("Interacting with Chest");
+        Debug.Log("Interacting with Object 2");
 
         // Set minigame aktif
         TypingMinigame.SetActive(true);
