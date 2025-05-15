@@ -57,8 +57,20 @@ public class CheckerWord : MonoBehaviour
     void Checking(string res)
     {
         // get reference text mesh pro (must step)
-        string txt = this.GetComponent<TextMeshProUGUI>().text;
-        // RefreshHighlights(res);
+        string fromText = this.GetComponent<TextMeshProUGUI>().text;
+
+        string txt = "";
+        string pattern = @"<color=#[0-9A-F]{6}>([^<]+)<\/color>([^<]*)";
+
+        // Matching and Capturing
+        Match match = Regex.Match(fromText, pattern);
+
+        if (match.Success)
+        {
+            txt = match.Groups[1].Value + match.Groups[2].Value;
+            // Console.WriteLine("Extracted Text: " + extractedText); // Output: Bodoh
+        }
+        // Debug.Log(txt + " - " + res);
         if (txt == res)
         {
             if (this.gameObject.tag == "0")
@@ -68,7 +80,7 @@ public class CheckerWord : MonoBehaviour
             if (this.gameObject.tag == "1")
             {
                 WordsSpawnManager.wordBaddused.Remove(Convert.ToInt32(this.gameObject.name));
-                sanityMeter.stt.value -= 20;
+                sanityMeter.stt.value += 3;
             }
             Destroy(this.gameObject);
         }

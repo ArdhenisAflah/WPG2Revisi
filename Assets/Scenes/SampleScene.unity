@@ -685,10 +685,10 @@ GameObject:
   - component: {fileID: 102777633}
   - component: {fileID: 102777632}
   - component: {fileID: 102777631}
-  - component: {fileID: 102777635}
   - component: {fileID: 102777636}
+  - component: {fileID: 102777637}
   m_Layer: 0
-  m_Name: Minigame Object 1
+  m_Name: Minigame Object 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1237,26 +1237,12 @@ Transform:
   m_GameObject: {fileID: 102777630}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.29, y: -6.89, z: -1}
+  m_LocalPosition: {x: 8.29, y: -6.89, z: -2}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &102777635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102777630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f14e9796ae264f945aa2564d9cb521c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TypingMinigame: {fileID: 0}
-  scriptsToDisable: []
 --- !u!114 &102777636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,6 +1256,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HasShown: 0
+--- !u!114 &102777637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102777630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14e9796ae264f945aa2564d9cb521c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Minigame: {fileID: 1445789088}
 --- !u!1 &115832163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,7 +1284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &115832164
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1519,7 +1518,7 @@ GameObject:
   - component: {fileID: 196465299}
   - component: {fileID: 196465304}
   m_Layer: 0
-  m_Name: Minigame Object 2
+  m_Name: Minigame Object 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1537,8 +1536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f14e9796ae264f945aa2564d9cb521c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypingMinigame: {fileID: 0}
-  scriptsToDisable: []
+  Minigame: {fileID: 1459169382}
 --- !u!60 &196465300
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2182,10 +2180,10 @@ RectTransform:
   - {fileID: 1090907655}
   m_Father: {fileID: 2025975223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 584.8046, y: -317.2459}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &321223000
 MonoBehaviour:
@@ -2645,6 +2643,7 @@ MonoBehaviour:
   anim: {fileID: 392351422}
   tutorialPanel: {fileID: 392351417}
   bgtutorial: {fileID: 565724828}
+  scriptForDisable: []
 --- !u!114 &392351420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3673,10 +3672,10 @@ RectTransform:
   - {fileID: 192409003}
   m_Father: {fileID: 2025975223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 694.8046, y: -207.24591}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &608776920
 MonoBehaviour:
@@ -4053,6 +4052,9 @@ MonoBehaviour:
   anim: {fileID: 654270908}
   tutorialPanel: {fileID: 654270905}
   bgtutorial: {fileID: 1824298671}
+  scriptForDisable:
+  - {fileID: 1459169386}
+  - {fileID: 723799816}
 --- !u!95 &654270908
 Animator:
   serializedVersion: 5
@@ -4750,10 +4752,10 @@ RectTransform:
   - {fileID: 1929498805}
   m_Father: {fileID: 2025975223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 694.8046, y: -317.2459}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &750419813
 MonoBehaviour:
@@ -6553,6 +6555,7 @@ GameObject:
   - component: {fileID: 1459169386}
   - component: {fileID: 1459169387}
   - component: {fileID: 1459169388}
+  - component: {fileID: 1459169389}
   m_Layer: 5
   m_Name: TypingGame
   m_TagString: collidertyping1
@@ -6631,13 +6634,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459169382}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f140c78a78e9c04ba9f980db43839f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   typingDB: {fileID: 11400000, guid: 04c5aa9a4ffd0b14d92c9d80c64ac232, type: 2}
   textPrefab: {fileID: 6799414568475726673, guid: bcd36e99bd036154b957b417e685e43d, type: 3}
+  scriptForDisable:
+  - {fileID: 723799816}
   spawnPosition:
   - {fileID: 1512609757}
   - {fileID: 1520889155}
@@ -6714,6 +6719,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1459169389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459169382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b55b334645154c042ae36c1a110d8269, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1460031587
 GameObject:
   m_ObjectHideFlags: 0
@@ -7648,10 +7665,10 @@ RectTransform:
   - {fileID: 521467124}
   m_Father: {fileID: 2025975223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 584.8046, y: -207.24591}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1784680687
 MonoBehaviour:
@@ -8300,7 +8317,7 @@ Transform:
   m_GameObject: {fileID: 1839901230}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.7, y: 9.5, z: 0}
+  m_LocalPosition: {x: 4.7, y: 9.5, z: -1}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8313,13 +8330,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839901230}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f14e9796ae264f945aa2564d9cb521c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypingMinigame: {fileID: 0}
-  scriptsToDisable: []
+  Minigame: {fileID: 115832163}
 --- !u!114 &1839901236
 MonoBehaviour:
   m_ObjectHideFlags: 0

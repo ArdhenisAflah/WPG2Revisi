@@ -10,6 +10,9 @@ public class TutorialMinigames : MonoBehaviour
     GameObject tutorialPanel;
     [SerializeField]
     GameObject bgtutorial;
+
+    [SerializeField]
+    MonoBehaviour[] scriptForDisable;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,10 @@ public class TutorialMinigames : MonoBehaviour
     private void OnEnable()
     {
         anim.SetBool("Popping?", true);
+        foreach (var item in scriptForDisable)
+        {
+            item.enabled = false;
+        }
     }
 
     // event onclick Close
@@ -28,7 +35,10 @@ public class TutorialMinigames : MonoBehaviour
         IsFirstTime = false;
         tutorialPanel.SetActive(false);
         bgtutorial.SetActive(false);
-
+        foreach (var item in scriptForDisable)
+        {
+            item.enabled = true;
+        }
     }
 
     private void Update()

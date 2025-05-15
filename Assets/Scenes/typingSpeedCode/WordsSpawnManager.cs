@@ -14,10 +14,18 @@ public class WordsSpawnManager : MonoBehaviour
     public static List<int> wordGoodused = new List<int>();
     public static List<int> wordBaddused = new List<int>();
 
+    [SerializeField]
+    MonoBehaviour[] scriptForDisable;
+
 
     public List<RectTransform> spawnPosition = new List<RectTransform>();
     void Start()
     {
+        // disable movement script too
+        foreach (var item in scriptForDisable)
+        {
+            item.enabled = false;
+        }
     }
 
     private void OnEnable()
@@ -31,6 +39,11 @@ public class WordsSpawnManager : MonoBehaviour
         // reset wordgoodused and bad used to zero again
         wordBaddused.Clear();
         wordGoodused.Clear();
+        // disable movement script too
+        foreach (var item in scriptForDisable)
+        {
+            item.enabled = true;
+        }
     }
 
     private void OnDestroy()
@@ -48,7 +61,7 @@ public class WordsSpawnManager : MonoBehaviour
             int randomWords = Random.Range(0, 2);
             if (randomWords == 0)
             {
-                int randItem = Random.Range(0, typingDB.dBWords[0].good.Length);
+                int randItem = Random.Range(0, typingDB.dBWords[typingDB.level].good.Length);
                 if (!wordGoodused.Contains(randItem))
                 {
                     int randSpawnPos = Random.Range(0, spawnPosition.Count);
@@ -62,13 +75,13 @@ public class WordsSpawnManager : MonoBehaviour
                     text.transform.SetParent(this.transform, false);
                     // set text
                     TextMeshProUGUI textRef = text.gameObject.GetComponent<TextMeshProUGUI>();
-                    textRef.text = typingDB.dBWords[0].good[randItem];
+                    textRef.text = typingDB.dBWords[typingDB.level].good[randItem];
                     wordGoodused.Add(randItem);
                 }
             }
             else if (randomWords == 1)
             {
-                int randItem = Random.Range(0, typingDB.dBWords[0].bad.Length);
+                int randItem = Random.Range(0, typingDB.dBWords[typingDB.level].bad.Length);
                 if (!wordBaddused.Contains(randItem))
                 {
                     int randSpawnPos = Random.Range(0, spawnPosition.Count);
@@ -82,7 +95,7 @@ public class WordsSpawnManager : MonoBehaviour
                     // set text
                     TextMeshProUGUI textRef = text.gameObject.GetComponent<TextMeshProUGUI>();
 
-                    textRef.text = typingDB.dBWords[0].bad[randItem];
+                    textRef.text = typingDB.dBWords[typingDB.level].bad[randItem];
                     wordBaddused.Add(randItem);
                 }
             }
