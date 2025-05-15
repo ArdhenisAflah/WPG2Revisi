@@ -1269,6 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528de4de069678b40ae0f6478960a35c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HasShown: 0
 --- !u!1 &115832163
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,6 +2011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f9f0ad13695de4181b2ad45ab2c0bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HasShown: 0
 --- !u!1 &200231490
 GameObject:
   m_ObjectHideFlags: 0
@@ -5437,6 +5439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c98071bf9e4a6d42bf4ad71c0df7947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HasShown: 0
 --- !u!1 &1140011712
 GameObject:
   m_ObjectHideFlags: 0
@@ -7824,6 +7827,7 @@ GameObject:
   - component: {fileID: 1839901232}
   - component: {fileID: 1839901231}
   - component: {fileID: 1839901235}
+  - component: {fileID: 1839901236}
   m_Layer: 0
   m_Name: Minigame Object 3
   m_TagString: Untagged
@@ -8316,6 +8320,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypingMinigame: {fileID: 0}
   scriptsToDisable: []
+--- !u!114 &1839901236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839901230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc3c7c0e94055fc4f9e20adf2df0317e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HasShown: 0
 --- !u!1 &1877410146
 GameObject:
   m_ObjectHideFlags: 0
