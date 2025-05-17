@@ -30,7 +30,7 @@ public class MoverWorder : MonoBehaviour
         }
         if (other.gameObject.tag == "collidertyping1" && this.gameObject.tag == "0")
         {
-            sanityMeter.stt.value -= 10;
+            sanityMeter.stt.value -= 20;
             Destroy(this.gameObject);
         }
     }

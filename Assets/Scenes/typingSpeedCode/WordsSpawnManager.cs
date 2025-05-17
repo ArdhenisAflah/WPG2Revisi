@@ -39,10 +39,18 @@ public class WordsSpawnManager : MonoBehaviour
         // reset wordgoodused and bad used to zero again
         wordBaddused.Clear();
         wordGoodused.Clear();
-        // disable movement script too
-        foreach (var item in scriptForDisable)
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
-            item.enabled = true;
+            // disable movement script too
+            foreach (var item in scriptForDisable)
+            {
+                item.enabled = true;
+            }
+            this.gameObject.SetActive(false);
         }
     }
 

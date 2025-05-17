@@ -8,6 +8,7 @@ public class NewsFeed
 {
     public string newsText;
     public bool isTrue;
+    public bool isNetral;
 }
 
 public class LikeDislikeManager : MonoBehaviour
@@ -19,6 +20,7 @@ public class LikeDislikeManager : MonoBehaviour
 
     [Header("News Feed Data")]
     public List<NewsFeed> newsFeeds = new List<NewsFeed>();
+    public TMP_Text puzzlePieceTxt;
     private NewsFeed currentNews;
 
     void Start()
@@ -52,20 +54,30 @@ public class LikeDislikeManager : MonoBehaviour
 
     void OnAnswerSelected(bool answer)
     {
-        // Check if the player's answer matches the news correctness
-        if (answer == currentNews.isTrue)
+        if (currentNews.isNetral != true)
         {
-            sanityMeter.stt.value += 10;
-            // Visual feedback: e.g., highlight correct answer
-            Debug.Log("Correct!");
-        }
-        else
-        {
-            sanityMeter.stt.value -= 10;
-            // Visual feedback: e.g., show error message
-            Debug.Log("Wrong answer!");
+            // Check if the player's answer matches the news correctness
+            if (answer == currentNews.isTrue)
+            {
+                sanityMeter.stt.value += 10;
+                // Visual feedback: e.g., highlight correct answer
+                // give missing piece when answer is correct.
+                if (UtilityVarLikeDislike.MissingPiece < 4)
+                {
+                    UtilityVarLikeDislike.MissingPiece += 1;
+                    puzzlePieceTxt.text = "Puzzle Piece:" + UtilityVarLikeDislike.MissingPiece;
+                }
+                Debug.Log("Correct!");
+            }
+            else
+            {
+                sanityMeter.stt.value -= 10;
+                // Visual feedback: e.g., show error message
+                Debug.Log("Wrong answer!");
+            }
         }
         // Proceed to next news feed
         ShowNextNewsFeed();
+
     }
 }
