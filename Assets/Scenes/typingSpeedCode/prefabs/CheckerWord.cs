@@ -76,11 +76,13 @@ public class CheckerWord : MonoBehaviour
             if (this.gameObject.tag == "0")
             {
                 WordsSpawnManager.wordGoodused.Remove(Convert.ToInt32(this.gameObject.name));
+                sanityMeter.stt.value += 5;
+
             }
             if (this.gameObject.tag == "1")
             {
                 WordsSpawnManager.wordBaddused.Remove(Convert.ToInt32(this.gameObject.name));
-                sanityMeter.stt.value += 3;
+                sanityMeter.stt.value -= 10;
             }
             Destroy(this.gameObject);
         }

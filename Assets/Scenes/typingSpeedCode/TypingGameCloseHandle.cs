@@ -8,6 +8,7 @@ public class TypingGameCloseHandle : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
+            MinigameObject1.IsOpened = false;
             this.gameObject.SetActive(false);
         }
     }

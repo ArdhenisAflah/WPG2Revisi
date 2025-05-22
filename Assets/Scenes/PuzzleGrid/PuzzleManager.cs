@@ -16,6 +16,9 @@ public class PuzzleManager : MonoBehaviour
     private int currentCol = 0;
     private bool isHorizontal = true;
     private List<PuzzleTile> currentSelection = new List<PuzzleTile>();
+
+    [SerializeField]
+    private MonoBehaviour[] scriptToDisable; 
     public int Day;
     void Start()
     {

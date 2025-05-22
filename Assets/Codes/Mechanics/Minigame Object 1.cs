@@ -5,18 +5,16 @@ using UnityEngine;
 
 public class MinigameObject1 : MonoBehaviour, I_Interactable
 {
-    public bool IsOpened { get; private set; }
+    public static bool IsOpened = false;
     public GameObject Minigame;
     // public MonoBehaviour[] scriptsToDisable;
 
 
-
-
     public bool CanInteract()
     {
-        // Object is interactable
         return true;
     }
+
 
     public void setActiveMovementScriptAgain()
     {
@@ -38,10 +36,13 @@ public class MinigameObject1 : MonoBehaviour, I_Interactable
 
     public void Interact()
     {
-        Debug.Log("Interacting with Object 2");
+
+
 
         // Set minigame aktif
         Minigame.SetActive(true);
+        Debug.Log("Interacting with Object 2");
+
 
         // //Ketika minigame aktif set skrip movement disable
         // foreach (MonoBehaviour script in scriptsToDisable)

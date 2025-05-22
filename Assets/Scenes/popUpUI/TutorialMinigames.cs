@@ -22,11 +22,11 @@ public class TutorialMinigames : MonoBehaviour
 
     private void OnEnable()
     {
-        anim.SetBool("Popping?", true);
         foreach (var item in scriptForDisable)
         {
             item.enabled = false;
         }
+        anim.SetBool("Popping?", true);
     }
 
     // event onclick Close

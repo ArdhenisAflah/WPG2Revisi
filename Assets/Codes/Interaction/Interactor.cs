@@ -9,8 +9,10 @@ public class Interactor : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && MinigameObject1.IsOpened == false)
         {
+            // active
+            MinigameObject1.IsOpened = true;
             // Check if Player presses Interact Key
             InteractableInRange?.Interact();
         }

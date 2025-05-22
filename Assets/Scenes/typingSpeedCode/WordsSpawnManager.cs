@@ -26,13 +26,10 @@ public class WordsSpawnManager : MonoBehaviour
         {
             item.enabled = false;
         }
-    }
-
-    private void OnEnable()
-    {
         // spawn word by random either good or bad
         StartCoroutine(generateWordy());
     }
+
 
     private void OnDisable()
     {
