@@ -6,6 +6,7 @@ using UnityEngine;
 public class MinigameObject1 : MonoBehaviour, I_Interactable
 {
     public static bool IsOpened = false;
+
     public GameObject Minigame;
     // public MonoBehaviour[] scriptsToDisable;
 
@@ -33,6 +34,7 @@ public class MinigameObject1 : MonoBehaviour, I_Interactable
         //     }
         // }
     }
+
 
     public void Interact()
     {

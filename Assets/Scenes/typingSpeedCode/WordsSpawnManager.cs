@@ -19,7 +19,7 @@ public class WordsSpawnManager : MonoBehaviour
 
 
     public List<RectTransform> spawnPosition = new List<RectTransform>();
-    void Start()
+    void OnEnable()
     {
         // disable movement script too
         foreach (var item in scriptForDisable)
@@ -33,14 +33,7 @@ public class WordsSpawnManager : MonoBehaviour
 
     private void OnDisable()
     {
-        // reset wordgoodused and bad used to zero again
-        wordBaddused.Clear();
-        wordGoodused.Clear();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (MinigameObject1.IsOpened == false)
         {
             // disable movement script too
             foreach (var item in scriptForDisable)
@@ -49,6 +42,13 @@ public class WordsSpawnManager : MonoBehaviour
             }
             this.gameObject.SetActive(false);
         }
+        // reset wordgoodused and bad used to zero again
+        wordBaddused.Clear();
+        wordGoodused.Clear();
+    }
+
+    private void Update()
+    {
     }
 
     private void OnDestroy()

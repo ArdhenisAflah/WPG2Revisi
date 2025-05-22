@@ -109,23 +109,30 @@ public class LikeDislikeManager : MonoBehaviour
     {
 
         // Check if the player's answer matches the news correctness
-        if (answer == currentContentType)
+        if (currentContentType == ContentType.Neutral)
         {
-            sanityMeter.stt.value += 10;
-            // Visual feedback: e.g., highlight correct answer
-            // give missing piece when answer is correct.
-            if (UtilityVarLikeDislike.MissingPiece < 4)
-            {
-                UtilityVarLikeDislike.MissingPiece += 1;
-                puzzlePieceTxt.text = "Piece:" + UtilityVarLikeDislike.MissingPiece + "/" + "16";
-            }
-            Debug.Log("Correct!");
+            Debug.Log("Neutral");
         }
         else
         {
-            sanityMeter.stt.value -= 10;
-            // Visual feedback: e.g., show error message
-            Debug.Log("Wrong answer!");
+            if (answer == currentContentType)
+            {
+                sanityMeter.stt.value += 10;
+                // Visual feedback: e.g., highlight correct answer
+                // give missing piece when answer is correct.
+                if (UtilityVarLikeDislike.MissingPiece < 4)
+                {
+                    UtilityVarLikeDislike.MissingPiece += 1;
+                    puzzlePieceTxt.text = "Piece:" + UtilityVarLikeDislike.MissingPiece + "/" + "16";
+                }
+                Debug.Log("Correct!");
+            }
+            else
+            {
+                sanityMeter.stt.value -= 10;
+                // Visual feedback: e.g., show error message
+                Debug.Log("Wrong answer!");
+            }
         }
 
         // Proceed to next news feed

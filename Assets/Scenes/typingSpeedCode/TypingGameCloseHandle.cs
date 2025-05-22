@@ -6,10 +6,10 @@ public class TypingGameCloseHandle : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            MinigameObject1.IsOpened = false;
-            this.gameObject.SetActive(false);
-        }
+        // if (Input.GetKeyUp(KeyCode.Escape))
+        // {
+        //     MinigameObject1.IsOpened = false;
+        //     this.gameObject.SetActive(false);
+        // }
     }
 }
