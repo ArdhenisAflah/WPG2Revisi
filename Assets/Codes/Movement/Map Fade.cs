@@ -7,19 +7,25 @@ public class MapFade : MonoBehaviour
 {
     public GameObject Enable;
     public GameObject Disable;
-    public GameObject Intereactor;
+    public GameObject Interactor;
 
     private void OnTriggerExit2D(Collider2D Collide)
     {
-        Enable.SetActive(true);
-        Disable.SetActive(false);
-        Intereactor.SetActive(false);
+        if (Collide.CompareTag("Player"))
+        {
+            Enable.SetActive(true);
+            Disable.SetActive(false);
+            Interactor.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D Collide)
     {
-        Enable.SetActive(false);
-        Disable.SetActive(true);
-        Intereactor.SetActive(true);
+        if (Collide.CompareTag("Player"))
+        {
+            Enable.SetActive(false);
+            Disable.SetActive(true);
+            Interactor.SetActive(true);
+        }
     }
 }

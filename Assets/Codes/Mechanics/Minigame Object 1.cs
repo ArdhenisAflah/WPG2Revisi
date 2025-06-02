@@ -12,7 +12,6 @@ public class MinigameObject1 : MonoBehaviour, I_Interactable
     public GameObject ShowBlockedPanel3;
     // public MonoBehaviour[] scriptsToDisable;
 
-
     public bool CanInteract()
     {
         Debug.Log("From Interact: " + this.gameObject.name);
@@ -30,7 +29,6 @@ public class MinigameObject1 : MonoBehaviour, I_Interactable
         // }
 
     }
-
 
     public void setActiveMovementScriptAgain()
     {
@@ -59,7 +57,6 @@ public class MinigameObject1 : MonoBehaviour, I_Interactable
 
     public void Interact()
     {
-
         if (this.gameObject.CompareTag("minigame3"))
         {
             if (UtilityVarLikeDislike.MissingPiece == 16)
@@ -78,9 +75,7 @@ public class MinigameObject1 : MonoBehaviour, I_Interactable
             // Set minigame aktif
             Minigame.SetActive(true);
         }
-
         // Debug.Log("Interacting with Object 2");
-
 
         // //Ketika minigame aktif set skrip movement disable
         // foreach (MonoBehaviour script in scriptsToDisable)

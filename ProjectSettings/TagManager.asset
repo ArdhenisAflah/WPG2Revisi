@@ -10,6 +10,7 @@ TagManager:
   - 0
   - 1
   - minigame3
+  - Objects
   layers:
   - Default
   - TransparentFX
@@ -18,10 +19,10 @@ TagManager:
   - Water
   - UI
   - Player
-  - Enemy
+  - Object
   - BlockMove
+  - Floor & Wall
   - Others
-  - 
   - 
   - 
   - 
@@ -67,4 +68,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 3972887519
+    locked: 0
+  - name: Test Layer
+    uniqueID: 3468708019
     locked: 0
