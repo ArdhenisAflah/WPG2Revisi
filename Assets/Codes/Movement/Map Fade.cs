@@ -5,12 +5,21 @@ using UnityEngine;
 
 public class MapFade : MonoBehaviour
 {
+    public GameObject Enable;
+    public GameObject Disable;
+    public GameObject Intereactor;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D Collide)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            ;
-        }
+        Enable.SetActive(true);
+        Disable.SetActive(false);
+        Intereactor.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D Collide)
+    {
+        Enable.SetActive(false);
+        Disable.SetActive(true);
+        Intereactor.SetActive(true);
     }
 }
