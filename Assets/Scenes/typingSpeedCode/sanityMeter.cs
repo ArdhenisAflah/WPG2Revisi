@@ -24,5 +24,8 @@ public class sanityMeter : MonoBehaviour
             stt.value -= 1;
             yield return new WaitForSeconds(1);
         }
+
+        Debug.Log("GameOver Sanity Meter Habis!!");
+        Time.timeScale = 0;
     }
 }

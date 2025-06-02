@@ -22,7 +22,7 @@ public class Interactor : MonoBehaviour
     {
         if (collision.TryGetComponent(out I_Interactable Interactable) && Interactable.CanInteract())
         {
-            Debug.Log(MinigameObject1.IsOpened);
+            // Debug.Log(MinigameObject1.IsOpened);
             // Sets the closest object as interactable
             InteractableInRange = Interactable;
         }
@@ -34,6 +34,7 @@ public class Interactor : MonoBehaviour
         {
             // Sets nothing as interactable
             InteractableInRange = null;
+            MinigameObject1.IsOpened = false;
         }
     }
 }

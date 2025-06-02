@@ -19,6 +19,18 @@ public class WordsSpawnManager : MonoBehaviour
 
 
     public List<RectTransform> spawnPosition = new List<RectTransform>();
+
+    void Start()
+    {
+        // disable movement script too
+        foreach (var item in scriptForDisable)
+        {
+            item.enabled = false;
+        }
+        // spawn word by random either good or bad
+        // StartCoroutine(generateWordy()); Dont spawn cuzz what? cuzz its just for OnEnable Only
+    }
+
     void OnEnable()
     {
         // disable movement script too
@@ -106,7 +118,7 @@ public class WordsSpawnManager : MonoBehaviour
             }
 
             // wait so make it delay not continously crazy amount.
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1.5f);
         }
     }
 }

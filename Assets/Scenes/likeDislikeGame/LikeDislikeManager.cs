@@ -115,28 +115,59 @@ public class LikeDislikeManager : MonoBehaviour
         }
         else
         {
-            if (answer == currentContentType)
+            if (currentContentType == ContentType.Positive && answer == ContentType.Positive)
             {
-                sanityMeter.stt.value += 10;
+                // sanityMeter.stt.value += 10;
                 // Visual feedback: e.g., highlight correct answer
                 // give missing piece when answer is correct.
-                if (UtilityVarLikeDislike.MissingPiece < 4)
+                if (UtilityVarLikeDislike.MissingPiece < 16)
                 {
                     UtilityVarLikeDislike.MissingPiece += 1;
                     puzzlePieceTxt.text = "Piece:" + UtilityVarLikeDislike.MissingPiece + "/" + "16";
                 }
                 Debug.Log("Correct!");
             }
-            else
+            else if (currentContentType == ContentType.Positive && answer == ContentType.Negative)
             {
                 sanityMeter.stt.value -= 10;
                 // Visual feedback: e.g., show error message
                 Debug.Log("Wrong answer!");
             }
+            else if (currentContentType == ContentType.Negative && answer == ContentType.Positive)
+            {
+                sanityMeter.stt.value -= 20;
+                // Visual feedback: e.g., show error message
+                Debug.Log("Wrong answer!");
+            }
+            // else if (currentContentType == ContentType.Negative && answer == ContentType.Positive)
+            // {
+            //     sanityMeter.stt.value -= 10;
+            //     // Visual feedback: e.g., show error message
+            //     Debug.Log("Wrong answer!");
+            // }
+            // else
+            // {
+            //     sanityMeter.stt.value -= 10;
+            //     // Visual feedback: e.g., show error message
+            //     Debug.Log("Wrong answer!");
+            // }
         }
 
         // Proceed to next news feed
         ShowNextNewsFeed();
 
+    }
+
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
+    {
+        if (UtilityVarLikeDislike.MissingPiece == 16)
+        {
+            Debug.Log("Success");
+            this.gameObject.SetActive(false);
+            MinigameObject1.IsOpened = false;
+        }
     }
 }

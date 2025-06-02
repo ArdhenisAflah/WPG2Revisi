@@ -59,24 +59,27 @@ public class CheckerWord : MonoBehaviour
         // get reference text mesh pro (must step)
         string fromText = this.GetComponent<TextMeshProUGUI>().text;
 
-        string txt = "";
-        string pattern = @"<color=#[0-9A-F]{6}>([^<]+)<\/color>([^<]*)";
+        // string txt = "";
+        // string pattern = @"<color=#[0-9A-F]{6}>([^<]+)<\/color>([^<]*)";
 
-        // Matching and Capturing
-        Match match = Regex.Match(fromText, pattern);
+        // // Matching and Capturing
+        // Match match = Regex.Match(fromText, pattern);
 
-        if (match.Success)
-        {
-            txt = match.Groups[1].Value + match.Groups[2].Value;
-            // Console.WriteLine("Extracted Text: " + extractedText); // Output: Bodoh
-        }
-        // Debug.Log(txt + " - " + res);
-        if (txt == res)
+        // if (match.Success)
+        // {
+        //     txt = match.Groups[1].Value + match.Groups[2].Value;
+        //     // Console.WriteLine("Extracted Text: " + extractedText); // Output: Bodoh
+        // }
+
+        // instead using regex, dont you think? (SMART MOVE SHIT)
+        res = $"<color=#FFFF00>{res}</color>";
+        Debug.Log(fromText + " - " + res);
+        if (fromText == res)
         {
             if (this.gameObject.tag == "0")
             {
                 WordsSpawnManager.wordGoodused.Remove(Convert.ToInt32(this.gameObject.name));
-                sanityMeter.stt.value += 5;
+                sanityMeter.stt.value += 15;
 
             }
             if (this.gameObject.tag == "1")

@@ -18,7 +18,7 @@ public class PlayManager : MonoBehaviour
     }
     public void Exit()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        // UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit(1);
     }
 }

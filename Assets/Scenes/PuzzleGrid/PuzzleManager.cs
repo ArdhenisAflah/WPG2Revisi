@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+// using System.Numerics;
 
 public class PuzzleManager : MonoBehaviour
 {
@@ -18,8 +19,11 @@ public class PuzzleManager : MonoBehaviour
     private List<PuzzleTile> currentSelection = new List<PuzzleTile>();
 
     [SerializeField]
-    private MonoBehaviour[] scriptToDisable; 
+    private MonoBehaviour[] scriptToDisable;
     public int Day;
+    public GameObject selector;
+
+    public GameObject selectorVertical;
     void Start()
     {
         Init();
@@ -167,13 +171,14 @@ public class PuzzleManager : MonoBehaviour
 
         if (isHorizontal)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow)) MoveSelection(-1);
-            if (Input.GetKeyDown(KeyCode.DownArrow)) MoveSelection(1);
+            if (Input.GetKeyDown(KeyCode.UpArrow) && currentRow > -1) MoveSelection(-1);
+
+            if (Input.GetKeyDown(KeyCode.DownArrow) && currentRow < 1) MoveSelection(1);
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow)) MoveSelection(-1);
-            if (Input.GetKeyDown(KeyCode.RightArrow)) MoveSelection(1);
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && currentCol > -1) MoveSelection(-1);
+            if (Input.GetKeyDown(KeyCode.RightArrow) && currentCol < 1) MoveSelection(1);
         }
 
         if (Input.GetMouseButtonDown(0)) RotateSelectedTiles();
@@ -208,18 +213,46 @@ public class PuzzleManager : MonoBehaviour
         // Add new selection
         if (isHorizontal)
         {
-            for (int col = 0; col < 2; col++)
+            selectorVertical.SetActive(false);
+            selector.SetActive(true);
+            if (currentRow > -1 && currentRow < 2)
             {
-                currentSelection.Add(tiles[currentRow, col]);
-                tiles[currentRow, col].SetHighlight(true, isHorizontal);
+                // Debug.Log(currentRow); atas 0 bawah 1
+                for (int col = 0; col < 2; col++)
+                {
+                    if (currentRow == 1)
+                    {
+                        selector.GetComponent<RectTransform>().anchoredPosition = new Vector2(-155.51f, -179);
+                        currentSelection.Add(tiles[currentRow, col]);
+                        tiles[currentRow, col].SetHighlight(true, isHorizontal);
+                    }
+                    else if (currentRow == 0)
+                    {
+                        selector.GetComponent<RectTransform>().anchoredPosition = new Vector2(-155.51f, 47.85178f);
+                        currentSelection.Add(tiles[currentRow, col]);
+                        tiles[currentRow, col].SetHighlight(true, isHorizontal);
+                    }
+                }
             }
         }
         else
         {
+            selectorVertical.SetActive(true);
+            selector.SetActive(false);
             for (int row = 0; row < 2; row++)
             {
-                currentSelection.Add(tiles[row, currentCol]);
-                tiles[row, currentCol].SetHighlight(true, isHorizontal);
+                if (currentCol == 0)
+                {
+                    selectorVertical.GetComponent<RectTransform>().anchoredPosition = new Vector2(-33, -315f);
+                    currentSelection.Add(tiles[row, currentCol]);
+                    tiles[row, currentCol].SetHighlight(true, isHorizontal);
+                }
+                else if (currentCol == 1)
+                {
+                    selectorVertical.GetComponent<RectTransform>().anchoredPosition = new Vector2(196, -315f);
+                    currentSelection.Add(tiles[row, currentCol]);
+                    tiles[row, currentCol].SetHighlight(true, isHorizontal);
+                }
             }
         }
     }

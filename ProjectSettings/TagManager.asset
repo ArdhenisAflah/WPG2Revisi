@@ -9,6 +9,7 @@ TagManager:
   - Room Waypoint
   - 0
   - 1
+  - minigame3
   layers:
   - Default
   - TransparentFX

@@ -8,12 +8,27 @@ public class MinigameObject1 : MonoBehaviour, I_Interactable
     public static bool IsOpened = false;
 
     public GameObject Minigame;
+
+    public GameObject ShowBlockedPanel3;
     // public MonoBehaviour[] scriptsToDisable;
 
 
     public bool CanInteract()
     {
+        Debug.Log("From Interact: " + this.gameObject.name);
+        // if (this.gameObject.CompareTag("minigame3"))
+        // {
+        //     if (UtilityVarLikeDislike.MissingPiece == 16)
+        //     {
+        //         return true;
+        //     }
+        //     return false;
+        // }
+        // else
+        // {
         return true;
+        // }
+
     }
 
 
@@ -35,15 +50,36 @@ public class MinigameObject1 : MonoBehaviour, I_Interactable
         // }
     }
 
+    IEnumerator startCloseSeconds()
+    {
+        yield return new WaitForSeconds(3);
+        ShowBlockedPanel3.SetActive(false);
+    }
+
 
     public void Interact()
     {
 
+        if (this.gameObject.CompareTag("minigame3"))
+        {
+            if (UtilityVarLikeDislike.MissingPiece == 16)
+            {
+                Minigame.SetActive(true);
+            }
+            else
+            {
+                // show blocked panel
+                ShowBlockedPanel3.SetActive(true);
+                StartCoroutine(startCloseSeconds());
+            }
+        }
+        else
+        {
+            // Set minigame aktif
+            Minigame.SetActive(true);
+        }
 
-
-        // Set minigame aktif
-        Minigame.SetActive(true);
-        Debug.Log("Interacting with Object 2");
+        // Debug.Log("Interacting with Object 2");
 
 
         // //Ketika minigame aktif set skrip movement disable
@@ -52,4 +88,6 @@ public class MinigameObject1 : MonoBehaviour, I_Interactable
         //     script.enabled = false;
         // }
     }
+
+
 }
