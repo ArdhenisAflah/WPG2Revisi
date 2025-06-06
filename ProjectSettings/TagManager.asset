@@ -11,6 +11,10 @@ TagManager:
   - 1
   - minigame3
   - Objects
+  - Stairs Up
+  - Stairs Down
+  - StairsUp
+  - StairsDown
   layers:
   - Default
   - TransparentFX
@@ -22,7 +26,7 @@ TagManager:
   - Object
   - BlockMove
   - Floor & Wall
-  - Others
+  - 
   - 
   - 
   - 
