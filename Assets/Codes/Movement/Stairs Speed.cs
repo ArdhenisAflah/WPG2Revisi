@@ -26,7 +26,6 @@ public class StairsSpeed : MonoBehaviour
     {
         if (Collision.TryGetComponent(out I_Stairs Stairs) && Collision.CompareTag("Player"))
         {
-            Debug.Log("Test1");
             StairsOn?.StairsEnd();
         }
     }

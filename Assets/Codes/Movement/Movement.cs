@@ -37,7 +37,6 @@ public class Movement : MonoBehaviour , I_Stairs
     }
     public void StairsEnd()
     {
-        Debug.Log("Test2");
         YSpeed = 4f;
     }
 
