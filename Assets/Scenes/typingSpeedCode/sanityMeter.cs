@@ -21,7 +21,7 @@ public class sanityMeter : MonoBehaviour
     {
         stt = sliderObj.GetComponent<Slider>();
         var trm = questPopUp.GetComponent<Transform>();
-        var trmfirst = trm.GetChild(0);
+        var trmfirst = trm.GetChild(1);
         animQuest = trmfirst.GetComponent<Animator>();
 
         StartCoroutine(timer());
