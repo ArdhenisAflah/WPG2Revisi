@@ -18,9 +18,9 @@ public class Interactor : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D Collision)
     {
-        if (collision.TryGetComponent(out I_Interactable Interactable) && Interactable.CanInteract())
+        if (Collision.TryGetComponent(out I_Interactable Interactable) && Interactable.CanInteract())
         {
             // Debug.Log(MinigameObject1.IsOpened);
             // Sets the closest object as interactable
@@ -28,9 +28,9 @@ public class Interactor : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D Collision)
     {
-        if (collision.TryGetComponent(out I_Interactable Interactable) && Interactable == InteractableInRange)
+        if (Collision.TryGetComponent(out I_Interactable Interactable) && Interactable == InteractableInRange)
         {
             // Sets nothing as interactable
             InteractableInRange = null;
