@@ -163,7 +163,7 @@ public class LikeDislikeManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (UtilityVarLikeDislike.MissingPiece == 16)
+        if (UtilityVarLikeDislike.MissingPiece >= 16)
         {
             Debug.Log("Success");
             this.gameObject.SetActive(false);

@@ -41,6 +41,17 @@ public class TutorialMinigames : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        IsFirstTime = false;
+        tutorialPanel.SetActive(false);
+        bgtutorial.SetActive(false);
+        foreach (var item in scriptForDisable)
+        {
+            item.enabled = true;
+        }
+    }
+
     private void Update()
     {
     }

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.SceneManagement;
 // using System.Numerics;
 
 public class PuzzleManager : MonoBehaviour
@@ -19,13 +20,23 @@ public class PuzzleManager : MonoBehaviour
     private List<PuzzleTile> currentSelection = new List<PuzzleTile>();
 
     [SerializeField]
-    private MonoBehaviour[] scriptToDisable;
     public int Day;
     public GameObject selector;
+    public int nextday;
 
+
+    [SerializeField]
+    GameObject questPopUp;
+    Animator animQuest;
+    AnimatorStateInfo stateInfo;
     public GameObject selectorVertical;
     void Start()
     {
+
+
+        var trm = questPopUp.GetComponent<Transform>();
+        var trmfirst = trm.GetChild(1);
+        animQuest = trmfirst.GetComponent<Animator>();
         Init();
     }
 
@@ -181,7 +192,19 @@ public class PuzzleManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.RightArrow) && currentCol < 1) MoveSelection(1);
         }
 
-        if (Input.GetMouseButtonDown(0)) RotateSelectedTiles();
+        if (Input.GetMouseButtonDown(1)) RotateSelectedTiles();
+
+
+        // Get the current animation state information for the base layer
+        stateInfo = animQuest.GetCurrentAnimatorStateInfo(0);
+        // Check if the "Attack" animation is playing and has completed
+        if (stateInfo.IsName("QuestSuccess") && stateInfo.normalizedTime >= 1.0f)
+        {
+            // Debug.Log("animation has finished.");
+            UtilityVarLikeDislike.MissingPiece = 0;
+            SceneManager.LoadScene(nextday);
+            // Add your logic here, e.g., allow the player to move again.
+        }
     }
 
     void ToggleSelectionMode()
@@ -263,7 +286,10 @@ public class PuzzleManager : MonoBehaviour
             tile.RotateTile();
 
         if (CheckWinCondition())
+        {
+            questPopUp.SetActive(true);
             Debug.Log("Puzzle Solved!");
+        }
     }
 
     bool CheckWinCondition()

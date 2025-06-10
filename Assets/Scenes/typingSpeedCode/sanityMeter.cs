@@ -44,8 +44,9 @@ public class sanityMeter : MonoBehaviour
         // Check if the "Attack" animation is playing and has completed
         if (stateInfo.IsName("QuestFailed") && stateInfo.normalizedTime >= 1.0f)
         {
-            Debug.Log("animation has finished.");
-            SceneManager.LoadScene("SampleScene");
+            // Debug.Log("animation has finished.");
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
             // Add your logic here, e.g., allow the player to move again.
         }
     }
